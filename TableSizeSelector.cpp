@@ -72,13 +72,13 @@ void TableSizeSelector::paintEvent(QPaintEvent * event)
     painter.setPen(pen);
 
     // Drawing rows grid
-    for(int i = 0; i < MAX_ROWS; ++i) {
+    for(int i = 0; i <= MAX_ROWS; ++i) {
         double verticalPos = i * m_rowHeight;
         painter.drawLine(QPointF(0.0, verticalPos), QPointF(m_rect.width(), verticalPos));
     }
 
     // Drawing columns grid
-    for(int i = 0; i < MAX_COLUMNS; ++i) {
+    for(int i = 0; i <= MAX_COLUMNS; ++i) {
         double horizontalPos = i * m_columnWidth;
         painter.drawLine(QPointF(horizontalPos, 0.0), QPointF(horizontalPos, m_rect.height()));
     }
@@ -119,7 +119,7 @@ void TableSizeSelector::leaveEvent(QEvent * event)
 QSize TableSizeSelector::sizeHint() const
 {
     QSize size;
-    size.setHeight(static_cast<int>(m_rect.height()));
-    size.setWidth(static_cast<int>(m_rect.width()));
+    size.setHeight(static_cast<int>(m_rect.height()) + 1);
+    size.setWidth(static_cast<int>(m_rect.width()) + 1);
     return size;
 }
