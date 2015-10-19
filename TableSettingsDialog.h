@@ -22,29 +22,43 @@
 * THE SOFTWARE.
 */
 
-#ifndef __INSERT_TABLE_TOOL_BUTTON_H__
-#define __INSERT_TABLE_TOOL_BUTTON_H__
+#ifndef __TABLE_SETTINGS_DIALOG_H
+#define __TABLE_SETTINGS_DIALOG_H
 
-#include <QToolButton>
+#include <QDialog>
 
-class InsertTableToolButton : public QToolButton
+namespace Ui {
+class TableSettingsDialog;
+}
+
+class TableSettingsDialog : public QDialog
 {
     Q_OBJECT
+
 public:
-    explicit InsertTableToolButton(QWidget * parent = 0);
+    explicit TableSettingsDialog(QWidget * parent = 0);
+    ~TableSettingsDialog();
 
-Q_SIGNALS:
-    void createdTable(int rows, int columns, double width, bool relative);
+    int numRows() const;
+    int numColumns() const;
+    double tableWidth() const;
+    bool relativeWidth() const;
 
-private Q_SLOTS:
-    void onTableSettingsDialogAction();
-    void onTableSizeChosen(int rows, int columns);
-    void onTableSizeConstraintsChosen(double width, bool relative);
+public Q_SLOTS:
+    void onOkButtonPressed();
+    void onCancelButtonPressed();
 
 private:
-    double      m_currentWidth;
-    bool        m_currentWidthIsRelative;
-    QMenu *     m_menu;
+    bool verifySettings(QString & error) const;
+    bool checkRelativeWidth() const;
+
+private:
+    Ui::TableSettingsDialog *ui;
+
+    int     m_numRows;
+    int     m_numColumns;
+    double  m_tableWidth;
+    bool    m_relativeWidth;
 };
 
-#endif // __INSERT_TABLE_TOOL_BUTTON_H__
+#endif // __TABLE_SETTINGS_DIALOG_H

@@ -27,10 +27,12 @@
           <string>...</string>
          </property>
          <property name="icon">
-          <iconset theme="insert-table"/>
+          <iconset theme="insert-table">
+           <normaloff/>
+          </iconset>
          </property>
          <property name="popupMode">
-          <enum>QToolButton::InstantPopup</enum>
+          <enum>QToolButton::MenuButtonPopup</enum>
          </property>
         </widget>
        </item>

@@ -17,15 +17,18 @@ SOURCES += main.cpp\
     InsertTableToolButton.cpp \
     TableSizeSelector.cpp \
     TableSizeSelectorActionWidget.cpp \
-    TableSizeConstraintsActionWidget.cpp
+    TableSizeConstraintsActionWidget.cpp \
+    TableSettingsDialog.cpp
 
 HEADERS  += MainWindow.h \
     InsertTableToolButton.h \
     TableSizeSelector.h \
     TableSizeSelectorActionWidget.h \
-    TableSizeConstraintsActionWidget.h
+    TableSizeConstraintsActionWidget.h \
+    TableSettingsDialog.h
 
-FORMS    += MainWindow.ui
+FORMS    += MainWindow.ui \
+    TableSettingsDialog.ui
 
 greaterThan(QT_MAJOR_VERSION, 4) {
   QT += widgets
