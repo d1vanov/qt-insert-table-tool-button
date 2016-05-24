@@ -22,8 +22,8 @@
 * THE SOFTWARE.
 */
 
-#ifndef __TABLE_SETTINGS_DIALOG_H
-#define __TABLE_SETTINGS_DIALOG_H
+#ifndef TABLE_SETTINGS_DIALOG_H
+#define TABLE_SETTINGS_DIALOG_H
 
 #include <QDialog>
 
@@ -61,4 +61,4 @@ private:
     bool    m_relativeWidth;
 };
 
-#endif // __TABLE_SETTINGS_DIALOG_H
+#endif // TABLE_SETTINGS_DIALOG_H
